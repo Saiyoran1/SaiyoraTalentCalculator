@@ -1,0 +1,12 @@
+.ability-selector {
+    box-sizing: content-box;
+    background-color: rgb(50, 50, 50);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+}
+
+.ability-selected {
+    border: 2px solid gold;
+}

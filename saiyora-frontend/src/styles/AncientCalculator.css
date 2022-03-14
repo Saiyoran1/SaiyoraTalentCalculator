@@ -1,0 +1,5 @@
+.ancient-talent-window {
+    height: 100%;
+    display: grid;
+    gap: 20px;
+}
