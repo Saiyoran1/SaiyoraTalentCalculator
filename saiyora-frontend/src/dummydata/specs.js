@@ -42,7 +42,7 @@ const ANCIENTSPECS = [
         ]
     },
     {
-        name: 'Shaman',
+        name: 'Rock Boi',
         color: 'green',
         abilities: [
             {

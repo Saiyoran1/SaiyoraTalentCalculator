@@ -7,12 +7,30 @@
 .app {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 20vh;
   gap: 30px;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: rgb(100, 50, 50);
   padding: 20px;
+}
+
+.main-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.build-display {
+  background-color: black;
+  border: 10px solid rgb(50, 50, 50);
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.tab-selector-row {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  width: 70%;
 }
