@@ -1,46 +1,9 @@
+import Pyromancer from './pyromancer';
+import Stormbringer from './stormbringer';
+
 const ANCIENTSPECS = [
-    {
-        name: 'Pyromancer',
-        color: 'red',
-        abilities: [
-            {
-                base: 'Flame Lance',
-                talent1: 'Cauterizing Lance',
-                talent2: 'Focused Lance'
-            },
-            {
-                base: 'Magma',
-                talent1: 'Lava Pool',
-                talent2: 'Dunk'
-            },
-            {
-                base: 'Inferno',
-                talent1: 'Expulsion',
-                talent2: 'Flare Up'
-            }
-        ]
-    },
-    {
-        name: 'Stormbringer',
-        color: 'pink',
-        abilities: [
-            {
-                base: 'Lightning Strike',
-                talent1: 'Static Charge',
-                talent2: 'Hyper Charge'
-            },
-            {
-                base: 'Tempest',
-                talent1: 'Powerful Storm',
-                talent2: 'Electric Storm'
-            },
-            {
-                base: 'Windburst',
-                talent1: 'Radial Burst',
-                talent2: 'Echo Burst'
-            }
-        ]
-    },
+    Pyromancer,
+    Stormbringer,
     {
         name: 'Rock Boi',
         color: 'green',
