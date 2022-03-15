@@ -9,7 +9,7 @@ function SpecRow(props) {
                 return <SpecSelector 
                         key={spec.name} 
                         spec={spec} 
-                        changeSpec={() => props.changeSpec(spec.name)}
+                        changeSpec={() => props.changeSpec(spec)}
                         selected={spec.name === props.selected} />
             })}
         </div>

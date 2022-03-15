@@ -1,72 +1,15 @@
 import Pyromancer from './pyromancer';
 import Stormbringer from './stormbringer';
+import Shaman from './shaman';
+import Spiritualist from './spiritualist';
+import Knight from './knight';
 
 const ANCIENTSPECS = [
     Pyromancer,
     Stormbringer,
-    {
-        name: 'Rock Boi',
-        color: 'green',
-        abilities: [
-            {
-                base: 'Flechete',
-                talent1: 'Deep Cuts',
-                talent2: 'Returning Earth'
-            },
-            {
-                base: 'Shields of Stone',
-                talent1: 'Sturdy Shields',
-                talent2: 'Spiked Shields'
-            },
-            {
-                base: 'Monolith',
-                talent1: 'Eruption',
-                talent2: 'Stone Steps'
-            }
-        ]
-    },
-    {
-        name: 'Spiritualist',
-        color: 'aqua',
-        abilities: [
-            {
-                base: 'Rejuvenating Stream',
-                talent1: 'Water Cycle',
-                talent2: 'Current'
-            },
-            {
-                base: 'Downpour',
-                talent1: 'Replenishment',
-                talent2: 'Hailstorm'
-            },
-            {
-                base: 'Well of Life',
-                talent1: 'Spirit of Water',
-                talent2: 'Spirit of Frost'
-            }
-        ]
-    },
-    {
-        name: 'Knight',
-        color: 'yellow',
-        abilities: [
-            {
-                base: 'Impale',
-                talent1: 'Mortal Wound',
-                talent2: 'Piercing Strike'
-            },
-            {
-                base: 'Parry',
-                talent1: 'Spell Parry',
-                talent2: 'Cocoon'
-            },
-            {
-                base: 'Whirling Blade',
-                talent1: 'Momentum',
-                talent2: 'Barbed Sword'
-            }
-        ]
-    }
+    Shaman,
+    Spiritualist,
+    Knight
 ];
 
 const MODERNSPECS = [

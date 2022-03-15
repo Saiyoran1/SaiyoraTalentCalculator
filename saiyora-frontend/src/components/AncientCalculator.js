@@ -7,29 +7,27 @@ function AncientCalculator(props) {
     const {specs, selectedSpec, build, changeSpec, changeTalent} = props;
 
     const getSelectedTalent = (baseName) => {
-        for (let i = 0; i < build.length; i++) {
-            if (build[i].base === baseName) {
-                return build[i].selected;
+        for (let i = 0; i < build.selections.length; i++) {
+            if (build.selections[i].ability.base.name === baseName) {
+                return build.selections[i].selected;
             }
         }
-        return baseName;
+        return 'base';
     }
 
     return (
         <>
             <div>
-                <SpecRow specs={specs.map((spec) => {
-                        return {name: spec.name, color: spec.color}
-                    })} 
+                <SpecRow specs={specs} 
                     selected={selectedSpec.name} 
                     changeSpec={changeSpec}/>
             </div>
             <div className='ancient-talent-window'>
                 {selectedSpec.abilities.map((ability) => {
-                    return <TalentRow key={ability.base} 
+                    return <TalentRow key={ability.base.name} 
                         ability={ability} 
-                        selected={getSelectedTalent(ability.base)} 
-                        select={(talentName) => changeTalent(ability.base, talentName)}/>
+                        selected={getSelectedTalent(ability.base.name)} 
+                        select={(selection) => changeTalent(ability.base.name, selection)}/>
                 })}
             </div>
         </>

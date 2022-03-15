@@ -8,47 +8,69 @@ import TabButton from './components/TabButton';
 function App() {
 
   const getDefaultAncientBuild = (spec) => {
-    const newBuild = [];
+    const newBuild = {specName: spec.name, selections: []};
     spec.abilities.forEach((ability) => {
-        newBuild.push({
-            base: ability.base,
-            selected: ability.base
+        newBuild.selections.push({
+            ability,
+            selected: 'base'
         });
     });
     return newBuild;
   }
 
-  const [ancientBuild, setAncientBuild] = useState(getDefaultAncientBuild(ANCIENTSPECS[0]));
+  /*Build: {
+    specName:,
+    selections: [
+      {
+        ability: {
+          base:{
+            id:, name:, description:, attributes:
+          }, 
+          talent1:{
+            id:, name:, description:, attributes:
+          }, 
+          talent2:{
+            id:, name:, description:, attributes:
+          }
+        },
+        selected: 'base/talent1/talent2'
+      }
+    ]
+  }
+  Access selected ability by using build[index].ability[selected] and base with build[index].ability.base*/
 
+  const [ancientBuild, setAncientBuild] = useState(getDefaultAncientBuild(ANCIENTSPECS[0]));
+  const [otherAncientBuilds, setOtherAncientBuilds] = useState([]);
   const [selectedSpec, setSelectedSpec] = useState(ANCIENTSPECS[0]);
 
-  const changeSpec = (newSpecName) => {
-      if (newSpecName !== selectedSpec.name) {
-          let targetSpec = selectedSpec;
-          for (let i = 0; i < ANCIENTSPECS.length; i++) {
-              if (ANCIENTSPECS[i].name === newSpecName) {
-                  targetSpec = ANCIENTSPECS[i];
-                  break;
-              }   
-          }
-          if (targetSpec !== selectedSpec) {
-              setSelectedSpec(targetSpec);
-              setAncientBuild(getDefaultAncientBuild(targetSpec));
-          }   
+  const changeSpec = (newSpec) => {
+    if (newSpec.name === selectedSpec.name) {
+      return;
+    }
+    const savedBuilds = [];
+    let targetBuild = getDefaultAncientBuild(newSpec);
+    otherAncientBuilds.forEach((build) => {
+      if (build.specName !== ancientBuild.specName) {
+        savedBuilds.push(build);
       }
+      if (build.specName === newSpec.name) {
+        targetBuild = build;
+      }
+    });
+    savedBuilds.push(ancientBuild);
+    setOtherAncientBuilds(savedBuilds);
+    setSelectedSpec(newSpec);
+    setAncientBuild(targetBuild);
   }
 
-  const selectTalent = (baseName, talentName) => {
-    const newBuild = [];
-    ancientBuild.forEach((talent) => {
-        if (talent.base === baseName) {
-            newBuild.push({
-                base: baseName,
-                selected: talentName
-            });
-        } else {
-            newBuild.push(talent);
-        }
+  const selectTalent = (baseName, talentChoice) => {
+    const newBuild = {specName: ancientBuild.specName, selections: []};
+    ancientBuild.selections.forEach((selection) => {
+      if (selection.ability.base.name !== baseName) {
+        newBuild.selections.push(selection);
+      } else {
+        newBuild.selections.push({ability: selection.ability, selected: talentChoice});
+      }
     });
     setAncientBuild(newBuild);
   }
@@ -76,7 +98,7 @@ function App() {
           <TabButton name={'Sources'} selected={displayTab !== 'evaluation'} onClick={() => setDisplayTab('sources')}/>
         </div>
         <CalculatorWindow>
-          {/* display strengths/weaknesses of the build or sources of each talent/ability */}  
+          
         </CalculatorWindow>
       </div>  
     </div>
