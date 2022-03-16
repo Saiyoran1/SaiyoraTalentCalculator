@@ -3,6 +3,11 @@ import Stormbringer from './stormbringer';
 import Shaman from './shaman';
 import Spiritualist from './spiritualist';
 import Knight from './knight';
+import Mutilator from './mutilator';
+import Chronomancer from './chronomancer';
+import Telekinetic from './telekinetic';
+import Illusionist from './illusionist';
+import Soldier from './soldier';
 
 const ANCIENTSPECS = [
     Pyromancer,
@@ -13,7 +18,13 @@ const ANCIENTSPECS = [
 ];
 
 const MODERNSPECS = [
-
+    Mutilator,
+    Chronomancer,
+    Telekinetic,
+    Illusionist,
+    Soldier
 ]
 
-export {ANCIENTSPECS, MODERNSPECS}
+const MAXMODERNSPELLS = 8;
+
+export {ANCIENTSPECS, MODERNSPECS, MAXMODERNSPELLS}
