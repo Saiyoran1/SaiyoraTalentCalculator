@@ -2,15 +2,15 @@ import SpecSelector from './SpecSelector';
 import '../styles/SpecRow.css';
 
 function SpecRow(props) {
-
+    const {specs, selectedSpecName, changeSpec} = props;
     return (
         <div className='spec-row'>
-            {props.specs.map((spec) => {
+            {specs.map((spec) => {
                 return <SpecSelector 
                         key={spec.name} 
                         spec={spec} 
-                        changeSpec={() => props.changeSpec(spec)}
-                        selected={spec.name === props.selected} />
+                        changeSpec={() => changeSpec(spec)}
+                        selected={selectedSpecName === spec.name} />
             })}
         </div>
     )

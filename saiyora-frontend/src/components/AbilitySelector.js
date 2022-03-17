@@ -1,8 +1,9 @@
 import '../styles/AbilitySelector.css';
 
 function AbilitySelector(props) {
+    const {name, select, selected} = props;
     return (
-        <button onClick={props.select} className={`ability-selector ${props.selected ? 'ability-selected' : ''}`}>{props.name}</button>
+        <button onClick={select} className={`ability-selector ${selected ? 'ability-selected' : ''}`}>{name}</button>
     )
 }
 
