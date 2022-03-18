@@ -1,9 +1,12 @@
 .talent-row {
     display: grid;
-    gap: 10px;
-    grid-template-columns: 3fr 1fr 3fr 3fr;
-}
-
-.talent-row-break {
-
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: rgb(100, 100, 100);
 }

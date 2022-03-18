@@ -1,5 +1,6 @@
 import SpecRow from './SpecRow';
 import ActionBar from './ActionBar';
+import TalentRow from './TalentRow';
 import '../styles/AncientCalculator.css';
 import {ANCIENTSPECS} from '../dummydata/specs';
 import {useState} from 'react';
@@ -60,9 +61,7 @@ function AncientCalculator(props) {
             </div>
             <div className='calculator-main'>
                 <ActionBar abilities={build.abilities} selectedAbility={selectedAbility} selectAbility={setSelectedAbility}/>
-                <div className='talent-selection-window'>
-                    This is a test.
-                </div>
+                <TalentRow ability={selectedAbility}/>
             </div>
             <div className='calculator-bottom'>
 
