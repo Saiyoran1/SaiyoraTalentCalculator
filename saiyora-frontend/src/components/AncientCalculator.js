@@ -1,55 +1,36 @@
 import SpecRow from './SpecRow';
-import ActionBar from './ActionBar';
-import TalentRow from './TalentRow';
+import AncientBuildEditor from './AncientBuildEditor';
 import '../styles/AncientCalculator.css';
 import {ANCIENTSPECS} from '../dummydata/specs';
 import {useState} from 'react';
+import BuildAnalyzer from './BuildAnalyzer';
 
 function AncientCalculator(props) {
 
+    const [spec, setSpec] = useState(ANCIENTSPECS[0]);
+
     const getDefaultBuild = (spec) => {
-        const buildSelections = spec.abilities.map((ability) => {
-            return {base: ability.base, talent1: ability.talent1, talent2: ability.talent2, selection: 'base'};
-        });
+        //Default build is just the spec data with a "selection" field appended to each ability.
+        //Default value is "base" which means no talent. Other viable values are "talent1" and "talent2".
         return {
-            name: spec.name,
-            description: spec.description,
-            color: spec.color,
-            abilities: buildSelections
-        }
+            ...spec, 
+            abilities: spec.abilities.map((ability) => {
+                return {...ability, selection: 'base'}
+            })
+        };
     }
 
-    const [spec, setSpec] = useState(ANCIENTSPECS[0]);
     const [build, setBuild] = useState(getDefaultBuild(spec));
-    const [savedBuilds, setSavedBuilds] = useState([]);
     
     const changeSpec = (newSpec) => {
-        const newSavedBuilds = [];
-        let foundBuildForNewSpec = false;
-        let foundBuildForCurrentSpec = false;
-        savedBuilds.forEach((savedBuild) => {
-            if (savedBuild.name === newSpec.name) {
-                newSavedBuilds.push(savedBuild);
-                foundBuildForNewSpec = true;
-                setBuild(savedBuild);
-            } else if (savedBuild.name === build.name) {
-                newSavedBuilds.push(build);
-                foundBuildForCurrentSpec = true;
-            } else {
-                newSavedBuilds.push(savedBuild);
-            }
-        });
-        if (!foundBuildForCurrentSpec) {
-            newSavedBuilds.push(build);
+        if (newSpec.name === spec.name) {
+            return;
         }
-        if (!foundBuildForNewSpec) {
-            setBuild(getDefaultBuild(newSpec));
-        }
-        setSavedBuilds(newSavedBuilds);
         setSpec(newSpec);
+        //TODO: Implement caching of builds between spec swaps so that everything isn't just wiped between swaps.
+        //useState with a saved build array should handle this, but will need to figure out when to update the saved builds array.
+        setBuild(getDefaultBuild(newSpec));
     }
-
-    const [selectedAbility, setSelectedAbility] = useState(build.abilities[0]);
 
     return (
         <div className='calculator'>
@@ -59,13 +40,8 @@ function AncientCalculator(props) {
                     selectedSpecName={spec.name} 
                     changeSpec={changeSpec}/>
             </div>
-            <div className='calculator-main'>
-                <ActionBar abilities={build.abilities} selectedAbility={selectedAbility} selectAbility={setSelectedAbility}/>
-                <TalentRow ability={selectedAbility}/>
-            </div>
-            <div className='calculator-bottom'>
-
-            </div>
+            <AncientBuildEditor build={build} changeBuild={setBuild} />
+            <BuildAnalyzer build={build} />
         </div>
     )
 }

@@ -6,8 +6,8 @@ function ActionBar(props) {
 
     return (
         <div className='action-bar'>
-            {abilities && abilities.map((ability) => {
-                return <ActionBarSlot key={ability.base.name} icon={ability[ability.selection].name} select={() => selectAbility(ability)} selected={selectedAbility.base.name === ability.base.name}/>
+            {abilities.map((ability) => {
+                return <ActionBarSlot key={ability.base.name} icon={ability.base.name} select={() => selectAbility(ability)} selected={ability.base.name === selectedAbility.base.name}/>
             })}
         </div>
     )
