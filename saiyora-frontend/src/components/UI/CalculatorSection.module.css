@@ -1,7 +1,5 @@
 .calculator-section {
     text-align: center;
-    border: 2px solid black;
-    border-bottom: none;
     padding: 10px;
     gap: 5px;
     display: flex;

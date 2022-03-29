@@ -1,13 +1,9 @@
 .calculator {
     display: flex;
+    width: 50%;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     align-items: center;
     color: white;
     background-color: rgb(75, 75, 75);
-}
-
-.calculator:last-child {
-    border-bottom: 2px solid black;
+    border: 2px solid black;
 }

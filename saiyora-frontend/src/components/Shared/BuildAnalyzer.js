@@ -1,4 +1,4 @@
-
+import styles from './BuildAnalyzer.module.css';
 
 function BuildAnalyzer(props) {
     const {build} = props;
@@ -19,8 +19,22 @@ function BuildAnalyzer(props) {
     }, {});
 
     return (
-        <div className='build-analyzer'>
-            <p>{JSON.stringify(buildAttributes)}</p>
+        <div className={styles.analyzer}>
+            {Object.keys(buildAttributes).map((attr) => {
+                return (
+                    <div key={attr} className={styles.attribute}>
+                        <p>{attr}: {buildAttributes[attr]}</p>
+                        <div className={styles['progress-outer']}>
+                            <div className={styles['progress-inner']} 
+                                style={{
+                                    width: `${buildAttributes[attr] / 15 * 100}%`, 
+                                    background: buildAttributes[attr] >= 5 ? buildAttributes[attr] >= 10 ? 'green' : 'yellow' : 'red'
+                                }}
+                            />
+                        </div>
+                    </div>
+                )
+            })}
         </div>
     )
 }

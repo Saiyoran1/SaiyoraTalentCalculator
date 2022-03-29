@@ -1,4 +1,3 @@
-import AncientBuildEditor from './AncientBuildEditor';
 import {ANCIENTSPECS} from '../../dummydata/specs';
 import {useState} from 'react';
 import BuildAnalyzer from '../Shared/BuildAnalyzer';
@@ -6,6 +5,7 @@ import CalculatorSection from '../UI/CalculatorSection';
 import Calculator from '../UI/Calculator';
 import SelectionRow from '../UI/SelectionRow';
 import Selectable from '../UI/Selectable';
+import AncientBuildEditor from './AncientBuildEditor';
 
 function AncientCalculator(props) {
 
@@ -34,6 +34,17 @@ function AncientCalculator(props) {
         setBuild(getDefaultBuild(newSpec));
     }
 
+    const changeTalent = (abilityName, selection) => {
+        for (let i = 0; i < build.abilities.length; i++) {
+            if (build.abilities[i].base.name === abilityName) {
+                const newBuild = {...build};
+                newBuild.abilities[i].selection = selection;
+                setBuild(newBuild);
+                break;
+            }
+        }
+    }
+
     return (
         <Calculator>
             <CalculatorSection>
@@ -52,7 +63,7 @@ function AncientCalculator(props) {
                 </SelectionRow>
             </CalculatorSection>
             <CalculatorSection>
-                <AncientBuildEditor build={build} changeBuild={setBuild} />
+                <AncientBuildEditor build={build} changeTalent={changeTalent}/>
             </CalculatorSection>
             <CalculatorSection>
                 <BuildAnalyzer build={build} />

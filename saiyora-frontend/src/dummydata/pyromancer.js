@@ -9,15 +9,15 @@ const Pyromancer = {
                 name: 'Flame Lance',
                 description: 'Shoot a piercing lance of fire forward in a line, igniting a number of targets hit based on the caster\'s current ember level.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 2,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 1,
-                    sustainDamage: 2,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 2,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 1,
+                    'Sustain Damage': 2,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0,
                 }
             },
             talent1: {
@@ -25,15 +25,15 @@ const Pyromancer = {
                 name: 'Cauterizing Lance',
                 description: 'Flame Lance now also includes friendly targets in its target cap, healing them over time.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 2,
-                    singleTargetHealing: 1,
-                    aoeHealing: 2,
-                    burstDamage: 1,
-                    sustainDamage: 2,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 2,
+                    'Single Target Healing': 1,
+                    'AoE Healing': 2,
+                    'Burst Damage': 1,
+                    'Sustain Damage': 2,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             },
             talent2: {
@@ -41,15 +41,15 @@ const Pyromancer = {
                 name: 'Focused Lance',
                 description: 'Flame Lance now hits the first target in the line significantly harder, but no longer ignites targets beyond the first.',
                 attributes: {
-                    singleTargetDamage: 3,
-                    aoeDamage: 1,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 3,
-                    sustainDamage: 1,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 3,
+                    'AoE Damage': 1,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 3,
+                    'Sustain Damage': 1,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             }
         },
@@ -59,15 +59,15 @@ const Pyromancer = {
                 name: 'Magma',
                 description: 'Hurl a glob of magma at enemies that explodes for high instant damage on impact.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 3,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 3,
-                    sustainDamage: 1,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 3,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 3,
+                    'Sustain Damage': 1,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             },
             talent1: {
@@ -75,15 +75,15 @@ const Pyromancer = {
                 name: 'Lava Pool',
                 description: 'Reduces Magma\'s explosion damage, but causes it to leave behind a puddle dealing ticking fire damage.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 3,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 2,
-                    sustainDamage: 2,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 3,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 2,
+                    'Sustain Damage': 2,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             },
             talent2: {
@@ -91,15 +91,15 @@ const Pyromancer = {
                 name: 'Dunk',
                 description: 'Causes the caster to instantly detonate Magma at their own feet, increasing explosion size and damage.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 3,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 3,
-                    sustainDamage: 1,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 3,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 3,
+                    'Sustain Damage': 1,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             }
         },
@@ -109,15 +109,15 @@ const Pyromancer = {
                 name: 'Inferno',
                 description: 'Incite a storm of fire from each Ember, causing them to burn nearby enemies for a short duration. This extinguishes all high-level Embers at the end of the cast.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 5,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 5,
-                    sustainDamage: 2,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 5,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 5,
+                    'Sustain Damage': 2,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             },
             talent1: {
@@ -125,15 +125,15 @@ const Pyromancer = {
                 name: 'Expulsion',
                 description: 'Causes Inferno\'s radius to be larger, but Inferno now also knocks targets away on each tick.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 5,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 5,
-                    sustainDamage: 2,
-                    crowdControl: 2,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 5,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 5,
+                    'Sustain Damage': 2,
+                    'Crowd Control': 2,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             },
             talent2: {
@@ -141,15 +141,15 @@ const Pyromancer = {
                 name: 'Flare Up',
                 description: 'Causes Inferno to also level all Embers to the highest potency for the duration of the channel, which will cause them to be removed at the end of the cast.',
                 attributes: {
-                    singleTargetDamage: 1,
-                    aoeDamage: 5,
-                    singleTargetHealing: 0,
-                    aoeHealing: 0,
-                    burstDamage: 5,
-                    sustainDamage: 1,
-                    crowdControl: 0,
-                    utility: 0,
-                    mobility: 0
+                    'Single Target Damage': 1,
+                    'AoE Damage': 5,
+                    'Single Target Healing': 0,
+                    'AoE Healing': 0,
+                    'Burst Damage': 5,
+                    'Sustain Damage': 1,
+                    'Crowd Control': 0,
+                    'Utility': 0,
+                    'Mobility': 0
                 }
             }
         }
