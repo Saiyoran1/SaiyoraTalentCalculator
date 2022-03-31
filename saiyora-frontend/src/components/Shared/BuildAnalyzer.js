@@ -1,8 +1,10 @@
 import styles from './BuildAnalyzer.module.css';
 
 function BuildAnalyzer(props) {
-    const {build} = props;
 
+    const {build, passiveAttributes} = props;
+
+    //Sum up attribute scores for all abilities to determine strengths and weaknesses.
     const buildAttributes = build.abilities.reduce((prevAttr, ability, index) => {
         //Destructure to get the current ability's attribute object.
         const {attributes} = ability[ability.selection];
@@ -18,12 +20,19 @@ function BuildAnalyzer(props) {
         return newAttr;
     }, {});
 
+    //Passive granted by the other spec is also added in.
+    if (passiveAttributes) {
+        for (const attribute in passiveAttributes) {
+            buildAttributes[attribute] += passiveAttributes[attribute];
+        }
+    }
+
     return (
         <div className={styles.analyzer}>
             {Object.keys(buildAttributes).map((attr) => {
                 return (
                     <div key={attr} className={styles.attribute}>
-                        <p>{attr}: {buildAttributes[attr]}</p>
+                        <p>{attr}</p>
                         <div className={styles['progress-outer']}>
                             <div className={styles['progress-inner']} 
                                 style={{

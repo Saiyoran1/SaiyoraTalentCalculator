@@ -9,7 +9,9 @@ import AncientBuildEditor from './AncientBuildEditor';
 
 function AncientCalculator(props) {
 
-    const [spec, setSpec] = useState(ANCIENTSPECS[0]);
+    const {passiveAttributes, setPassiveAttributes} = props;
+
+    const [spec, setSpec] = useState();
 
     const getDefaultBuild = (spec) => {
         //Default build is just the spec data with a "selection" field appended to each ability.
@@ -22,13 +24,15 @@ function AncientCalculator(props) {
         };
     }
 
-    const [build, setBuild] = useState(getDefaultBuild(spec));
+    const [build, setBuild] = useState();
     
     const changeSpec = (newSpec) => {
-        if (newSpec.name === spec.name) {
-            return;
-        }
         setSpec(newSpec);
+        if (newSpec.passive) {
+            setPassiveAttributes(newSpec.passive.attributes);
+        } else {
+            setPassiveAttributes({});
+        }
         //TODO: Implement caching of builds between spec swaps so that everything isn't just wiped between swaps.
         //useState with a saved build array should handle this, but will need to figure out when to update the saved builds array.
         setBuild(getDefaultBuild(newSpec));
@@ -54,7 +58,7 @@ function AncientCalculator(props) {
                         return (
                         <Selectable key={ancientSpec.name} 
                             select={() => changeSpec(ancientSpec)} 
-                            selected={spec.name === ancientSpec.name} 
+                            selected={spec && spec.name === ancientSpec.name}
                             customBorder={ancientSpec.color}
                         >
                             {ancientSpec.name}
@@ -63,10 +67,10 @@ function AncientCalculator(props) {
                 </SelectionRow>
             </CalculatorSection>
             <CalculatorSection>
-                <AncientBuildEditor build={build} changeTalent={changeTalent}/>
+                {spec && build && <AncientBuildEditor build={build} changeTalent={changeTalent}/>}
             </CalculatorSection>
             <CalculatorSection>
-                <BuildAnalyzer build={build} />
+                {spec && build && <BuildAnalyzer build={build} passiveAttributes={passiveAttributes}/>}
             </CalculatorSection>
         </Calculator>
     )

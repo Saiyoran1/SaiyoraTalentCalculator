@@ -2,6 +2,20 @@ const Pyromancer = {
     name: 'Pyromancer',
     description: 'Harnesses the elemental power of fire to deal ramping damage over time to a large amount of targets. This spec focuses on management of damage over time effects, exponential AoE damage, and features a mix of hitscan and projectile attacks.',
     color: 'red',
+    passive: {
+        name: 'Pyromancer\'s Echo',
+        attributes: {
+            'Single Target Damage': 0,
+            'AoE Damage': 0,
+            'Single Target Healing': 0,
+            'AoE Healing': 0,
+            'Burst Damage': 0,
+            'Sustain Damage': 1,
+            'Crowd Control': 0,
+            'Utility': 0,
+            'Mobility': 0,
+        }
+    },
     abilities: [
         {
             base: {
