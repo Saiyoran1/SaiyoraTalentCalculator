@@ -1,13 +1,13 @@
-import {ANCIENTSPECS} from '../../dummydata/specs';
+import {MODERNSPECS} from '../../dummydata/specs';
 import {useState} from 'react';
 import BuildAnalyzer from '../Shared/BuildAnalyzer';
 import CalculatorSection from '../UI/CalculatorSection';
 import Calculator from '../UI/Calculator';
 import SelectionRow from '../UI/SelectionRow';
 import Selectable from '../UI/Selectable';
-import AncientBuildEditor from './AncientBuildEditor';
+import ModernBuildEditor from './ModernBuildEditor';
 
-function AncientCalculator(props) {
+function ModernCalculator(props) {
 
     const {passiveAttributes, setPassiveAttributes} = props;
 
@@ -16,12 +16,9 @@ function AncientCalculator(props) {
     const getDefaultBuild = (spec) => {
         //Default build is just the spec data with a "selection" field appended to each ability.
         //Default value is "base" which means no talent. Other viable values are "talent1" and "talent2".
-        return {
-            ...spec, 
-            abilities: spec.abilities.map((ability) => {
-                return {...ability, selection: 'base'}
-            })
-        };
+        const newBuild = {...spec};
+        newBuild.selections = spec.abilities.filter(ability => ability.specLock);
+        return newBuild;
     }
 
     const [build, setBuild] = useState();
@@ -41,28 +38,28 @@ function AncientCalculator(props) {
     return (
         <Calculator>
             <CalculatorSection>
-                <h2>Choose an Ancient Specialization</h2>
+                <h2>Choose a Modern Specialization</h2>
                 <SelectionRow>
-                    {ANCIENTSPECS.map((ancientSpec) => {
+                    {MODERNSPECS.map((modernSpec) => {
                         return (
-                        <Selectable key={ancientSpec.name} 
-                            select={() => changeSpec(ancientSpec)} 
-                            selected={spec && spec.name === ancientSpec.name}
-                            customBorder={ancientSpec.color}
+                        <Selectable key={modernSpec.name} 
+                            select={() => changeSpec(modernSpec)} 
+                            selected={spec && spec.name === modernSpec.name}
+                            customBorder={modernSpec.color}
                         >
-                            {ancientSpec.name}
+                            {modernSpec.name}
                         </Selectable>
                     )})}
                 </SelectionRow>
             </CalculatorSection>
             <CalculatorSection>
-                {<AncientBuildEditor build={build} setBuild={setBuild}/>}
+                {<ModernBuildEditor build={build} setBuild={setBuild}/>}
             </CalculatorSection>
             <CalculatorSection>
-                {<BuildAnalyzer abilities={build ? build.abilities.map(ability => ability[ability.selection]) : []} passiveAttributes={passiveAttributes}/>}
+                {<BuildAnalyzer abilities={build ? build.selections : []} passiveAttributes={passiveAttributes}/>}
             </CalculatorSection>
         </Calculator>
     )
 }
 
-export default AncientCalculator;
+export default ModernCalculator;

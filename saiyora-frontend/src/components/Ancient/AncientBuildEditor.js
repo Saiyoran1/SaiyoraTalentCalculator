@@ -3,11 +3,22 @@ import Selectable from '../UI/Selectable';
 
 function AncientBuildEditor(props) {
 
-    const {build, changeTalent} = props;
+    const {build, setBuild} = props;
+
+    const changeTalent = (abilityName, selection) => {
+        for (let i = 0; i < build.abilities.length; i++) {
+            if (build.abilities[i].base.name === abilityName) {
+                const newBuild = {...build};
+                newBuild.abilities[i].selection = selection;
+                setBuild(newBuild);
+                break;
+            }
+        }
+    }
 
     return (
         <>
-            {build.abilities.map((ability) => {
+            {build && build.abilities && build.abilities.map((ability) => {
                     return (
                         <SelectionRow key={ability.base.name}>
                             <Selectable key={ability.base.name}

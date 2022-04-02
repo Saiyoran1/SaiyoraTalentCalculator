@@ -1,29 +1,26 @@
 import styles from './BuildAnalyzer.module.css';
+import Attribute from '../../dummydata/attributes';
 
 function BuildAnalyzer(props) {
 
-    const {build, passiveAttributes} = props;
+    const {abilities, passiveAttributes} = props;
 
-    //Sum up attribute scores for all abilities to determine strengths and weaknesses.
-    const buildAttributes = build.abilities.reduce((prevAttr, ability, index) => {
-        //Destructure to get the current ability's attribute object.
-        const {attributes} = ability[ability.selection];
-        //Since the initial value is an empty object (to allow changes to the attribute data), we need to create an initial attribute object from the first ability.
-        if (index === 0) {
-            return {...attributes};
-        }
-        const newAttr = {...prevAttr};
-        for (const attribute in attributes) {
-            //Using += here so watch out for potential number/string confusion in the future.
-            newAttr[attribute] += attributes[attribute];
-        }
-        return newAttr;
+    //Create the initial attributes object by adding a field for each attribute's display name.
+    const buildAttributes = Object.keys(Attribute).reduce((prev, attr) => {
+        return {...prev, [Attribute[attr]]: 0};
     }, {});
+
+    //For each ability, add attribute values to the already created object.
+    abilities.forEach(ability => {
+        for (const attr in ability.attributes) {
+            buildAttributes[attr] += ability.attributes[attr];
+        }
+    })
 
     //Passive granted by the other spec is also added in.
     if (passiveAttributes) {
-        for (const attribute in passiveAttributes) {
-            buildAttributes[attribute] += passiveAttributes[attribute];
+        for (const attr in passiveAttributes) {
+            buildAttributes[attr] += passiveAttributes[attr];
         }
     }
 

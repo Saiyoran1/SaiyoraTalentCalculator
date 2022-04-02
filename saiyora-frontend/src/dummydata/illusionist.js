@@ -3,7 +3,7 @@ const Illusionist = {
     description: 'This is an illusionist lol',
     color: 'aqua',
     abilities: [
-
+        
     ]
 }
 
