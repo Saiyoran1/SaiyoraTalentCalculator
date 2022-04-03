@@ -14,10 +14,21 @@ function ModernCalculator(props) {
     const [spec, setSpec] = useState();
 
     const getDefaultBuild = (spec) => {
-        //Default build is just the spec data with a "selection" field appended to each ability.
-        //Default value is "base" which means no talent. Other viable values are "talent1" and "talent2".
+        //Default build is just the spec with a Selections array that contains the selected abilities.
+        //Slot 0 is dedicated to the spec's weapon, and two further slots are dedicated to "locked" abilities only this spec can access.
         const newBuild = {...spec};
-        newBuild.selections = spec.abilities.filter(ability => ability.specLock);
+        newBuild.selections = Array(8).fill({});
+        newBuild.selections[0] = spec.weapon;
+        let lockedAbilities = 0;
+        for (let i = 0; i < spec.abilities.length; i++) {
+            if (spec.abilities[i].specLock) {
+                lockedAbilities++;
+                newBuild.selections[lockedAbilities] = spec.abilities[i];
+                if (lockedAbilities === 2) {
+                    break;
+                }
+            } 
+        }
         return newBuild;
     }
 

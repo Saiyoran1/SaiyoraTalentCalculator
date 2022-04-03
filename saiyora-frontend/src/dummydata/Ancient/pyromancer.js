@@ -1,4 +1,4 @@
-import Attribute from './attributes';
+import Attribute from '../attributes';
 
 const Pyromancer = {
     name: 'Pyromancer',

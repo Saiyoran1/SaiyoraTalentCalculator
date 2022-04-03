@@ -1,13 +1,13 @@
-import Pyromancer from './pyromancer';
-import Stormbringer from './stormbringer';
-import Shaman from './shaman';
-import Spiritualist from './spiritualist';
-import Knight from './knight';
-import Mutilator from './mutilator';
-import Chronomancer from './chronomancer';
-import Telekinetic from './telekinetic';
-import Illusionist from './illusionist';
-import Soldier from './soldier';
+import Pyromancer from './Ancient/pyromancer';
+import Stormbringer from './Ancient/stormbringer';
+import Shaman from './Ancient/shaman';
+import Spiritualist from './Ancient/spiritualist';
+import Knight from './Ancient/knight';
+import Mutilator from './Modern/mutilator';
+import Chronomancer from './Modern/chronomancer';
+import Telekinetic from './Modern/telekinetic';
+import Illusionist from './Modern/illusionist';
+import Soldier from './Modern/soldier';
 
 const ANCIENTSPECS = [
     Pyromancer,
