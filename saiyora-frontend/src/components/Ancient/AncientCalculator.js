@@ -6,6 +6,7 @@ import Calculator from '../UI/Calculator';
 import SelectionRow from '../UI/SelectionRow';
 import Selectable from '../UI/Selectable';
 import AncientBuildEditor from './AncientBuildEditor';
+import styles from '../Shared/SpecSelectionRow.module.css';
 
 function AncientCalculator(props) {
 
@@ -42,7 +43,7 @@ function AncientCalculator(props) {
         <Calculator>
             <CalculatorSection>
                 <h2>Choose an Ancient Specialization</h2>
-                <SelectionRow>
+                <SelectionRow className={styles['spec-selection-row']}>
                     {ANCIENTSPECS.map((ancientSpec) => {
                         return (
                         <Selectable key={ancientSpec.name} 

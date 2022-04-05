@@ -6,6 +6,7 @@ import Calculator from '../UI/Calculator';
 import SelectionRow from '../UI/SelectionRow';
 import Selectable from '../UI/Selectable';
 import ModernBuildEditor from './ModernBuildEditor';
+import styles from '../Shared/SpecSelectionRow.module.css';
 
 function ModernCalculator(props) {
 
@@ -50,7 +51,7 @@ function ModernCalculator(props) {
         <Calculator>
             <CalculatorSection>
                 <h2>Choose a Modern Specialization</h2>
-                <SelectionRow>
+                <SelectionRow className={styles['spec-selection-row']}>
                     {MODERNSPECS.map((modernSpec) => {
                         return (
                         <Selectable key={modernSpec.name} 

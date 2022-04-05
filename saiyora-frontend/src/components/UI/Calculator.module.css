@@ -1,7 +1,7 @@
 .calculator {
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 3fr 2fr;
     width: 50%;
-    flex-direction: column;
     align-items: center;
     color: white;
     background-color: rgb(75, 75, 75);

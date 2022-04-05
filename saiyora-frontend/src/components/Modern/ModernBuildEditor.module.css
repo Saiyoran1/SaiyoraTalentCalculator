@@ -1,0 +1,31 @@
+.build-editor {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgb(100, 100, 100);
+    border: 2px solid black;
+}
+
+.ability-selection-window {
+    width: 100%;
+    height:100%;
+    padding: 10px;
+    background: rgb(60, 60, 60);
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    gap: 10px;
+    
+}
+
+.pool-spec-selector {
+    flex-direction: column;
+}
+
+.pool-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
